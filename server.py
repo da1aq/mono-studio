@@ -46,11 +46,10 @@ app = Flask(__name__)
 
 def get_db_connection():
     connection = psycopg2.connect(
-        host="localhost",
-        port=5432,
-        database="mono_studio",
-        user="postgres",
-        password=DB_PASSWORD
+        os.getenv("DATABASE_URL")
+    )
+
+    return connection
     )
 
     return connection
