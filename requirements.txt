@@ -1,0 +1,6 @@
+Flask>=3.1,<4
+aiogram>=3.31,<4
+python-dotenv>=1.0,<2
+requests
+psycopg2-binary
+gunicorn

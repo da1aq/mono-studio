@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Статус заявки — MONO STUDIO</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+</head>
+
+
+<body class="status-page">
+
+
+    <section>
+
+        <div class="contact-box">
+
+
+            <div class="section-label">
+                MONO STUDIO
+            </div>
+
+
+            <h2>
+                Статус заявки
+            </h2>
+
+
+            <div class="booking-result">
+
+
+                <h3>
+                    Заявка №{{ booking.id }}
+                </h3>
+
+
+                <div
+                    class="booking-status"
+                    id="booking-status"
+                >
+                    {{ status_text }}
+                </div>
+
+
+                <p>
+                    Здесь будет отображаться
+                    актуальный статус вашей заявки.
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <script>
+
+        const bookingId =
+            Number("{{ booking.id }}");
+
+
+        const statusElement =
+            document.querySelector("#booking-status");
+
+
+        async function updateStatus() {
+
+            try {
+
+                const response = await fetch(
+                    `/api/status/${bookingId}`
+                );
+
+
+                if (!response.ok) {
+                    return;
+                }
+
+
+                const data =
+                    await response.json();
+
+
+                if (data.status === "new") {
+
+                    statusElement.textContent =
+                        "🕐 Ожидает обработки";
+
+                }
+
+
+                else if (data.status === "accepted") {
+
+                    statusElement.textContent =
+                        "✅ Заявка принята";
+
+                }
+
+
+                else if (data.status === "rejected") {
+
+                    statusElement.textContent =
+                        "❌ Заявка отклонена";
+
+                }
+
+            }
+
+            catch (error) {
+
+                console.log(
+                    "Ошибка обновления статуса:",
+                    error
+                );
+
+            }
+
+        }
+
+
+        updateStatus();
+
+
+        setInterval(
+            updateStatus,
+            3000
+        );
+
+    </script>
+
+
+</body>
+
+</html>

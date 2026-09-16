@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<title>MONO STUDIO</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+```
+
+</head>
+
+<body>
+
+```
+<!-- ===== HEADER ===== -->
+
+<header>
+    <div class="logo">
+        MONO STUDIO
+    </div>
+
+    <nav>
+        <a href="#services">Услуги</a>
+        <a href="#works">Работы</a>
+        <a href="#contact">Контакты</a>
+    </nav>
+</header>
+
+
+<!-- ===== HERO ===== -->
+
+<main>
+
+    <div class="hero">
+
+        <div>
+
+            <div class="subtitle">
+                Ателье
+            </div>
+
+            <h1>
+                Одежда,<br>
+                которая<br>
+                сидит как нужно.
+            </h1>
+
+            <p class="hero-text">
+                Пошив, ремонт и подгонка одежды.
+                Бережная работа с вещами
+                и внимание к каждой детали.
+            </p>
+
+            <a class="button" href="#contact">
+                Оставить заявку
+            </a>
+
+        </div>
+
+
+        <div class="hero-image">
+            Индивидуальный подход
+        </div>
+
+    </div>
+
+
+    <!-- ===== SERVICES ===== -->
+
+    <section id="services">
+
+        <div class="section-label">
+            Что мы делаем
+        </div>
+
+        <h2>
+            Услуги ателье
+        </h2>
+
+
+        <div class="services">
+
+            <div class="service">
+
+                <h3>
+                    Ремонт одежды
+                </h3>
+
+                <p>
+                    Замена молний, подшив,
+                    восстановление и другие
+                    виды ремонта одежды.
+                </p>
+
+            </div>
+
+
+            <div class="service">
+
+                <h3>
+                    Подгонка по фигуре
+                </h3>
+
+                <p>
+                    Корректируем посадку изделия,
+                    чтобы одежда выглядела
+                    аккуратно и комфортно.
+                </p>
+
+            </div>
+
+
+            <div class="service">
+
+                <h3>
+                    Индивидуальный пошив
+                </h3>
+
+                <p>
+                    Поможем воплотить вашу идею
+                    и подобрать подходящее решение
+                    для будущего изделия.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ===== WORKS ===== -->
+
+    <section id="works">
+
+        <div class="section-label">
+            Наши работы
+        </div>
+
+        <h2>
+            Примеры работ
+        </h2>
+
+
+        <div class="works">
+
+            <div class="work">
+                Ремонт и подгонка
+            </div>
+
+            <div class="work">
+                Индивидуальный пошив
+            </div>
+
+            <div class="work">
+                Работа с деталями
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ===== CONTACT ===== -->
+
+    <section id="contact">
+
+        <div class="contact-box">
+
+            <div class="section-label">
+                Связаться
+            </div>
+
+            <h2>
+                Расскажите, что нужно сделать
+            </h2>
+
+            <p>
+                Оставьте заявку — мы свяжемся
+                с вами и уточним детали работы.
+            </p>
+
+
+            <form action="/booking" method="POST">
+
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Ваше имя"
+                    required
+                >
+
+                <input
+                    type="tel"
+                    name="phone"
+                    placeholder="Телефон"
+                    required
+                >
+
+                <input
+                    type="text"
+                    name="service"
+                    placeholder="Какая услуга нужна?"
+                >
+
+                <textarea
+                    name="message"
+                    placeholder="Что нужно сделать?"
+                ></textarea>
+
+                <button
+                    class="submit"
+                    type="submit"
+                >
+                    Отправить заявку
+                </button>
+
+            </form>
+
+
+            <!-- Telegram -->
+
+            <div id="telegram-link-container"></div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- ===== FOOTER ===== -->
+
+<footer>
+    Демо-концепт сайта ателье MONO STUDIO
+</footer>
+
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+```
+
+</body>
+
+</html>
